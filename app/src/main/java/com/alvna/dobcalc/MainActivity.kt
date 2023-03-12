@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         val datePickerDialog = getDatePickerDialog(year, month, day)
 
-        datePickerDialog.datePicker.maxDate = System.currentTimeMillis() - 60 * 60 * 24
+        // 86400000 is milliseconds of 24 Hours. Which is used to restrict the user from selecting today and future day.
+        datePickerDialog.datePicker.maxDate = System.currentTimeMillis() - 60 * 60 * 24 * 1000
         datePickerDialog.show()
     }
 
